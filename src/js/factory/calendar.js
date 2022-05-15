@@ -1073,6 +1073,9 @@ Calendar.prototype._renderFunc = function() {
         this._refreshMethod();
     }
     if (this._layout) {
+        // 发射一个开始render的信号？
+        this.fire('readyToRender');
+        // 执行render
         this._layout.render();
     }
     if (this._scrollToNowMethod && this._requestScrollToNow) {
