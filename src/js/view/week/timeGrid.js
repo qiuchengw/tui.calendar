@@ -415,20 +415,28 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
         childOption,
         child,
         isToday,
+        currentDate = this.parent.parent.state.currentDate.toDate(), // layout state
+        currentDateStr = '',
         containerHeight,
         today = datetime.format(new TZDate().toLocalTime(), 'YYYYMMDD'),
+        currentClassName = '',
         i = 0;
 
     // clear contents
     container.innerHTML = '';
     this.children.clear();
 
+    if (currentDate) {
+        currentDateStr = String(currentDate.getFullYear())
+            + (currentDate.getMonth() + 1).toString().padStart(2, '0')
+            + currentDate.getDate().toString().padStart(2, '0');
+    }
+
     containerHeight = domutil.getSize(container.parentElement)[1];
 
     // reconcilation of child views
     util.forEach(viewModels, function(schedules, ymd) {
         isToday = ymd === today;
-
         childOption = {
             index: i,
             left: grids[i] ? grids[i].left : 0,
@@ -442,9 +450,15 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
             hourEnd: options.hourEnd
         };
 
+        currentClassName = '';
+        if (ymd === currentDateStr) {
+            console.log('=====> current date:', ymd);
+            currentClassName = ' ' + config.classname('time-current');
+        }
+
         child = new Time(
             childOption,
-            domutil.appendHTMLElement('div', container, config.classname('time-date')),
+            domutil.appendHTMLElement('div', container, config.classname('time-date') + currentClassName),
             theme
         );
         child.render(ymd, schedules, containerHeight);

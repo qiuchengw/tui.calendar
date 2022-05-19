@@ -1232,6 +1232,9 @@ Calendar.prototype.move = function(offset) {
         start: startDate,
         end: endDate
     };
+    this._layout.setState({
+        currentDate: this._renderDate
+    });
 };
 
 /**
