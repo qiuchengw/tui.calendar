@@ -447,11 +447,12 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
             isFocused: options.isFocused,
             isReadOnly: options.isReadOnly,
             hourStart: options.hourStart,
-            hourEnd: options.hourEnd
+            hourEnd: options.hourEnd,
+            isCurrentDate: (ymd === currentDateStr)
         };
 
         currentClassName = '';
-        if (ymd === currentDateStr) {
+        if (childOption.isCurrentDate) {
             console.log('=====> current date:', ymd);
             currentClassName = ' ' + config.classname('time-current');
         }

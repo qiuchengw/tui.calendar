@@ -59,6 +59,7 @@
     .hourmarker-line-today
         position: absolute
         min-height: 1px
+        z-index: 99999;
 
     .hourmarker-line-right
         position: absolute
@@ -123,10 +124,11 @@
                 left: 0px
 
     .current
-        border-left: 1px solid #0078d7
-        border-right: 2px solid #0078d7
-        margin-right: 1px
-        background-color: #E0EFFA
+        border: 1px solid #0078d7
+        border-top: none
+        background-color: #0078d71f
+        margin-right: 1px;
+        z-index: 9999;
 
     .date-schedule-block-wrap
         position: relative

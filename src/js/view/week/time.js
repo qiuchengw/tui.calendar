@@ -324,11 +324,16 @@ Time.prototype._getStyles = function(theme) {
     var options = this.options;
 
     if (theme) {
-        styles.borderRight = theme.week.timegrid.borderRight || theme.common.border;
+        if (!options.isCurrentDate) {
+            // 当前日期使用style配置的样式
+            styles.borderRight = theme.week.timegrid.borderRight || theme.common.border;
+            styles.backgroundColor = options.isToday ? theme.week.today.backgroundColor : 'inherit';
+        } else if (options.isToday) {
+            styles.backgroundColor = theme.week.today.backgroundColor;
+        }
         styles.marginRight = theme.week.timegrid.paddingRight;
         styles.borderRadius = theme.week.timegridSchedule.borderRadius;
         styles.paddingLeft = theme.week.timegridSchedule.paddingLeft;
-        styles.backgroundColor = options.isToday ? theme.week.today.backgroundColor : 'inherit';
     }
 
     return styles;
