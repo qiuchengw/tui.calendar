@@ -101,6 +101,10 @@ function Time(options, container, theme) {
         domutil.addClass(this.container, config.classname('today'));
     }
 
+    if (this.options.isCurrentDate) {
+        domutil.addClass(this.container, config.classname('time-current'));
+    }
+
     this.applyTheme();
 }
 
@@ -324,8 +328,9 @@ Time.prototype._getStyles = function(theme) {
     var options = this.options;
 
     if (theme) {
-        if (!options.isCurrentDate) {
-            // 当前日期使用style配置的样式
+        if (options.isDayView || !options.isCurrentDate) {
+            // dayview 或者
+            // console.log('===> options:', options);
             styles.borderRight = theme.week.timegrid.borderRight || theme.common.border;
             styles.backgroundColor = options.isToday ? theme.week.today.backgroundColor : 'inherit';
         } else if (options.isToday) {

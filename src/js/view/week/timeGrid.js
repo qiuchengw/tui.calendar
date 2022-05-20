@@ -419,7 +419,6 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
         currentDateStr = '',
         containerHeight,
         today = datetime.format(new TZDate().toLocalTime(), 'YYYYMMDD'),
-        currentClassName = '',
         i = 0;
 
     // clear contents
@@ -448,18 +447,13 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
             isReadOnly: options.isReadOnly,
             hourStart: options.hourStart,
             hourEnd: options.hourEnd,
-            isCurrentDate: (ymd === currentDateStr)
+            isCurrentDate: (ymd === currentDateStr),
+            isDayView: (self.parent.viewName === 'timegrid')
         };
-
-        currentClassName = '';
-        if (childOption.isCurrentDate) {
-            console.log('=====> current date:', ymd);
-            currentClassName = ' ' + config.classname('time-current');
-        }
 
         child = new Time(
             childOption,
-            domutil.appendHTMLElement('div', container, config.classname('time-date') + currentClassName),
+            domutil.appendHTMLElement('div', container, config.classname('time-date')),
             theme
         );
         child.render(ymd, schedules, containerHeight);
