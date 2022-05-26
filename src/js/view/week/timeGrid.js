@@ -402,6 +402,13 @@ TimeGrid.prototype._getBaseViewModel = function(viewModel) {
     });
 };
 
+function ymd2Date(ymd) {
+    var y = ymd.substr(0, 4),
+        m = ymd.substr(4, 2),
+        d = ymd.substr(-2);
+    return new Date(y + '/' + m + '/' + d);
+}
+
 /**
  * Reconcilation child views and render.
  * @param {object} viewModels Viewmodel
@@ -419,11 +426,14 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
         currentDateStr = '',
         containerHeight,
         today = datetime.format(new TZDate().toLocalTime(), 'YYYYMMDD'),
+        ymdWeekday,
         i = 0;
 
     // clear contents
     container.innerHTML = '';
     this.children.clear();
+
+    // console.log('====> self:,', self.children.toArray());
 
     if (currentDate) {
         currentDateStr = String(currentDate.getFullYear())
@@ -436,6 +446,7 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
     // reconcilation of child views
     util.forEach(viewModels, function(schedules, ymd) {
         isToday = ymd === today;
+        ymdWeekday = ymd2Date(ymd).getDay();
         childOption = {
             index: i,
             left: grids[i] ? grids[i].left : 0,
@@ -448,7 +459,8 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
             hourStart: options.hourStart,
             hourEnd: options.hourEnd,
             isCurrentDate: (ymd === currentDateStr),
-            isDayView: (self.parent.viewName === 'timegrid')
+            isDayView: (self.children.length <= 1),
+            isWeekend: (ymdWeekday === 0 || ymdWeekday === 6)
         };
 
         child = new Time(

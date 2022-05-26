@@ -97,11 +97,11 @@ function Time(options, container, theme) {
     container.style.width = options.width + '%';
     container.style.left = options.left + '%';
 
-    if (this.options.isToday) {
+    if (this.options.isToday && !this.options.isCurrentDate) {
         domutil.addClass(this.container, config.classname('today'));
     }
 
-    if (this.options.isCurrentDate) {
+    if (this.options.isCurrentDate && !this.options.isDayView) {
         domutil.addClass(this.container, config.classname('time-current'));
     }
 
@@ -328,13 +328,21 @@ Time.prototype._getStyles = function(theme) {
     var options = this.options;
 
     if (theme) {
-        if (options.isDayView || !options.isCurrentDate) {
-            // dayview 或者
-            // console.log('===> options:', options);
-            styles.borderRight = theme.week.timegrid.borderRight || theme.common.border;
-            styles.backgroundColor = options.isToday ? theme.week.today.backgroundColor : 'inherit';
+        // console.log('===> options:', options);
+        styles.borderRight = theme.week.timegrid.borderRight || theme.common.border;
+        if (options.isCurrentDate) {
+            delete styles.borderRight;
+            // if (options.isDayView) {
+            //     // styles.backgroundColor = theme.week.today.backgroundColor;
+            // } else {
+            //     delete styles.borderRight;
+            // }
         } else if (options.isToday) {
             styles.backgroundColor = theme.week.today.backgroundColor;
+        } else if (options.isWeekend) {
+            styles.backgroundColor = theme.week.weekend.backgroundColor;
+        } else {
+            styles.backgroundColor = 'inherit';
         }
         styles.marginRight = theme.week.timegrid.paddingRight;
         styles.borderRadius = theme.week.timegridSchedule.borderRadius;

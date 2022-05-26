@@ -33,7 +33,7 @@ var theme = {
     // month day grid cell 'day'
     'month.holidayExceptThisMonth.color': 'rgba(255, 64, 64, 0.4)',
     'month.dayExceptThisMonth.color': 'rgba(51, 51, 51, 0.4)',
-    'month.weekend.backgroundColor': 'inherit',
+    'month.weekend.backgroundColor': '#3333330e',
     'month.day.fontSize': '14px',
 
     // month schedule style
@@ -79,7 +79,7 @@ var theme = {
     'week.daygridLeft.borderRight': '1px solid #e5e5e5',
 
     'week.today.backgroundColor': 'rgba(81, 92, 230, 0.05)',
-    'week.weekend.backgroundColor': 'inherit',
+    'week.weekend.backgroundColor': '#3333330f',
 
     // week timegrid 'timegrid'
     'week.timegridLeft.width': '72px',
