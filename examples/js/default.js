@@ -184,7 +184,11 @@ cal.on({
     }
 
     return true;
-  }
+  },
+  'clickDayname': function(date) {
+    console.log('clickDayname222', date);
+    cal.setDate(new Date(date.date));
+  },
 });
 
 init();

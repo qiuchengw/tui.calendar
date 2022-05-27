@@ -427,13 +427,14 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
         containerHeight,
         today = datetime.format(new TZDate().toLocalTime(), 'YYYYMMDD'),
         ymdWeekday,
+        childrenCount = Object.keys(viewModels).length,
         i = 0;
 
     // clear contents
     container.innerHTML = '';
     this.children.clear();
 
-    // console.log('====> self:,', self.children.toArray());
+    // console.log('====> self:,', self.children.length, self);
 
     if (currentDate) {
         currentDateStr = String(currentDate.getFullYear())
@@ -442,6 +443,8 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
     }
 
     containerHeight = domutil.getSize(container.parentElement)[1];
+
+    // console.log('====> childrenCount,', childrenCount, viewModels);
 
     // reconcilation of child views
     util.forEach(viewModels, function(schedules, ymd) {
@@ -459,7 +462,7 @@ TimeGrid.prototype._renderChildren = function(viewModels, grids, container, them
             hourStart: options.hourStart,
             hourEnd: options.hourEnd,
             isCurrentDate: (ymd === currentDateStr),
-            isDayView: (self.children.length <= 1),
+            isDayView: (childrenCount <= 1),
             isWeekend: (ymdWeekday === 0 || ymdWeekday === 6)
         };
 

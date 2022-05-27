@@ -35,10 +35,11 @@
             console.log('clickMore', e);
         },
         'clickSchedule': function(e) {
-            console.log('clickSchedule', e);
+            console.log('clickSchedule222', e, cal.setDate);
         },
         'clickDayname': function(date) {
-            console.log('clickDayname', date);
+            console.log('clickDayname222', date);
+            cal.setDate(new Date(date));
         },
         'beforeCreateSchedule': function(e) {
             console.log('beforeCreateSchedule', e);
