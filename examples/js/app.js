@@ -39,7 +39,7 @@
         },
         'clickDayname': function(date) {
             console.log('clickDayname222', date);
-            cal.setDate(new Date(date));
+            cal.setDate(date.date);
         },
         'beforeCreateSchedule': function(e) {
             console.log('beforeCreateSchedule', e);
