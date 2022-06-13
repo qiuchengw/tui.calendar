@@ -1,0 +1,1 @@
+export const DEFAULT_RESIZER_LENGTH = 3;

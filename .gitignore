@@ -15,6 +15,7 @@ coverage
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
+screenshots
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
@@ -55,7 +56,6 @@ doc
 report
 tui.calendar
 # dist
-*.vim
 
 # for local dev purpose
 demo-dev/
@@ -65,3 +65,23 @@ markup
 # performance tester fixtures
 perf/**/*.json
 package-lock.json
+# build
+storybook-static/
+dist/
+apps/calendar/types/
+
+# etc
+*.swp
+etc
+temp
+api
+doc
+report
+karma.conf.local.js
+.tern-project
+.tern-port
+*.vim
+.\#*
+.vscode/
+test-results/
+stats.json

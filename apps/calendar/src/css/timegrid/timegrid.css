@@ -1,0 +1,60 @@
+.panel.time {
+  overflow-y: auto;
+}
+
+.timegrid {
+  user-select: none;
+  position: relative;
+  height: 200%;
+  min-height: 900px;
+}
+
+.timegrid .timegrid-scroll-area {
+  position: relative;
+  height: 100%;
+}
+
+.timegrid .columns {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.timegrid .columns .gridline-half {
+  position: absolute;
+  width: 100%;
+}
+
+.timegrid .columns .column {
+  display: inline-block;
+  height: 100%;
+}
+
+.timegrid .timegrid-current-time-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.timegrid .timegrid-current-time-line .timegrid-current-time-line-left {
+  position: absolute;
+}
+
+.timegrid .timegrid-current-time-line .timegrid-current-time-line-marker {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin: -4px 0 0 -5px;
+}
+
+.timegrid .timegrid-current-time-line .timegrid-current-time-line-today {
+  position: absolute;
+}
+
+.timegrid .timegrid-current-time-line .timegrid-current-time-line-right {
+  position: absolute;
+  right: 0;
+}

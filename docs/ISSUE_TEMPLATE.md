@@ -1,24 +1,25 @@
 <!--
 Thank you for your contribution.
 
-When it comes to write an issue, please, use the template below.
-To use the template is mandatory for submit new issue and we won't reply the issue that without the template.
+When writing an issue, please, use the template below.
+It's mandatory to use the template for submitting the new issue.
+We don't reply to the issue not following the template.
 -->
 
-<!-- TEMPLATE -->
-
+<!-- BUG ISSUE TEMPLATE -->
 ## Version
-<!-- Write the version of the grid you are currently using. -->
+<!-- Write the version of the toast-ui.vue-calendar you are currently using. -->
 
-## Development Environment
+## Test Environment
 <!-- Write the browser type, OS and so on -->
 
 ## Current Behavior
-<!-- Write a description of the current operation. You can add example code, 'CodePen' or 'jsfiddle' links. -->
+<!-- Write steps to reproduce the current behaviour in detail.
+You can add sample code, 'CodePen' or 'jsfiddle' links. -->
 
 ```js
 // Write example code
 ```
 
 ## Expected Behavior
-<!-- Write a description of the future action. -->
+<!-- Write a description for future action. -->

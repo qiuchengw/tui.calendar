@@ -12,5 +12,6 @@
   "bracketSpacing": true,
   "requirePragma": false,
   "insertPragma": false,
-  "proseWrap": "preserve"
+  "proseWrap": "preserve",
+  "vueIndentScriptAndStyle": false
 }

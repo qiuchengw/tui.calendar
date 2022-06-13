@@ -1,0 +1,52 @@
+.daynames {
+  position: relative;
+}
+
+.dayname-container {
+  position: relative;
+}
+
+.dayname-item {
+  position: absolute;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.dayname-item.week {
+  line-height: 38px;
+  height: 42px;
+}
+
+.dayname-item.month {
+  line-height: 31px;
+  height: 31px;
+}
+
+.day-view-daynames,
+.week-view-daynames {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.daynames.week {
+  height: 42px;
+  padding-left: 0;
+  text-align: left;
+}
+
+.daynames.month {
+  height: 31px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.dayname-date {
+  font-size: 26px;
+}
+
+.dayname-name {
+  font-size: 12px;
+}
